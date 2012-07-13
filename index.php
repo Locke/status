@@ -185,6 +185,12 @@ echo '<h2>vMB <small>vote.piratenpartei-hessen.de</small></h2>';
 assertStatusEQ("https://vote.piratenpartei-hessen.de/", "200");
 assertRedirectionEQ("http://vote.piratenpartei-hessen.de", "https://vote.piratenpartei-hessen.de/");
 
+echo '<h2>LQFB (Hessen-Instanz) <small>lqfb.piratenpartei-hessen.de</small></h2>';
+
+assertStatusEQ("https://lqfb.piratenpartei-hessen.de/", "303");
+assertStatusEQ("http://lqfb.piratenpartei-hessen.de/", "303");
+assertStatusEQ("https://lqfb.piratenpartei-hessen.de/area/list.html", "200");
+
 echo '
       </div><!-- /span14 -->
     </div><!-- /row -->
