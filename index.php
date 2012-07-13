@@ -137,7 +137,6 @@ echo '<h2>Website <small>piratenpartei-hessen.de</small></h2>';
 assertStatusEQ("http://www.piratenpartei-hessen.de", "200");
 
 assertRedirectionEQ('http://piraten-hessen.de', 'http://www.piratenpartei-hessen.de/');
-assertRedirectionEQ('http://piraten-hessen.de', 'http://www.piratenpartei-hessen.de/');
 assertRedirectionEQ('http://piratenpartei-hessen.de', 'http://www.piratenpartei-hessen.de/');
 
 assertRedirectionEQ('https://piratenpartei-hessen.de', 'http://www.piratenpartei-hessen.de/');
