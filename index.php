@@ -125,7 +125,7 @@ echo '
     <div class="row">
       <div class="span14">';
 
-echo '<h2>Hosts</h2>';
+echo '<h2>Hosts <small>*.pph0.de</small></h2>';
 
 assertPortUp('pph1.pph0.de', 22);
 assertPortUp('pph2.pph0.de', 22);
