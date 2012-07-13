@@ -27,6 +27,7 @@ echo '<!DOCTYPE html>
   </head>
 
   <body>
+		 <a href="https://github.com/levu42/status"><img style="position: fixed; top: 40px; right: 0; border: 0; z-index: 1000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
   <div class="topbar">
     <div class="fill">
@@ -207,6 +208,7 @@ echo '
          </p>
        </div>
      </footer>
+
 
       </body>
     </html>
