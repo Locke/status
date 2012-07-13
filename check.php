@@ -187,7 +187,9 @@ function assertPortUp($url, $port, $critial = true) {
         123 => 'NTP',
         143 => 'IMAP',
         443 => 'HTTPS',
+				465 => 'SMTP',
         587 => 'SMTP',
+				5060 => 'SIP',
         5222 => 'XMPP',
         5223 => 'XMPP',
         5269 => 'XMPP',
@@ -209,7 +211,7 @@ function assertPortUp($url, $port, $critial = true) {
 }
 
 function assertTitleEQ($url, $title, $critial = true) {
-    $html = file_get_contents($url, NULL, NULL, -1, 1000);
+    $html = file_get_contents($url, NULL, NULL, -1, 10000);
     preg_match("/<title>(.+)<\/title>/siU", $html, $matches);
 
     $result = "";

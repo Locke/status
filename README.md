@@ -1,7 +1,7 @@
 IT-Status
 =========
 
-Die Datei `index.php` zeigt den aktuellen IT-Status für den Landesverband Mecklenburg-Vorpommern der Piratenpartei Deutschland an. Unsere Version ist unter https://service.piratenpartei-mv.de/status gehostet.
+Die Datei `index.php` zeigt den aktuellen IT-Status für den Landesverband Hessen der Piratenpartei Deutschland an. Unsere Version ist unter http://status.piratenpartei-hessen.de/ gehostet.
 
 Anpassen
 --------
@@ -20,3 +20,5 @@ Fragen
 ------
 
 Bei Fragen bitte eine Mail an support@piraten-mv.de schreiben. Wir helfen gerne!
+
+Für Hessen-relevante Fragen ist die Emailadresse it@piratenpartei-hessen.de. Die Anpassung auf den LV Hessen hat Florian @levudev Stascheck vorgenommen, vielen Dank an die MV-IT!

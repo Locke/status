@@ -10,8 +10,8 @@ echo '<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>PIRATEN MV IT-Status</title>
-    <meta name="description" content="IT-Status der PIRATEN MV">
+    <title>PIRATEN Hessen IT-Status</title>
+    <meta name="description" content="IT-Status der PIRATEN Hessen">
     <meta name="author" content="Niels Lohmann">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -35,8 +35,8 @@ echo '<!DOCTYPE html>
         <ul class="nav">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#bund">Bundes-IT</a></li>
-          <li><a href="#other">Leih-IT</a></li>
-          <li><a href="#land">Landes-IT</a></li>
+          <li><a href="#other">Sonstige IT</a></li>
+          <li><a href="#land">HessenIT</a></li>
         </ul>
       </div>
     </div>
@@ -56,8 +56,6 @@ assertStatusEQ("http://wiki.piratenpartei.de", "301");
 assertStatusEQ("http://wiki.piratenpartei.de/Hauptseite", "200");
 assertStatusEQ("https://wiki.piratenpartei.de/Hauptseite", "200");
 assertTitleEQ("http://wiki.piratenpartei.de/Hauptseite", "Hauptseite – Piratenwiki");
-assertStatusEQ("http://wiki.piraten-mv.de", "301");
-assertTitleEQ("http://wiki.piraten-mv.de", "");
 
 
 echo '<h2>Mailinglisten <small>news.piratenpartei.de</small></h2>';
@@ -74,10 +72,10 @@ assertPortUp("news.piratenpartei.de", 119);
 
 echo '<h2>Pads <small>piratenpad.de</small></h2>';
 
-assertStatusEQ("http://meck-pom.piratenpad.de", "302");
-assertStatusEQ("https://meck-pom.piratenpad.de", "302");
-assertStatusEQ("http://pad.piratenpartei-mv.de", "301");
-assertStatusEQ("http://pad.piraten-mv.de", "301");
+assertStatusEQ("http://hessen.piratenpad.de", "302");
+assertStatusEQ("https://hessen.piratenpad.de", "302");
+assertStatusEQ("http://hessen-it.piratenpad.de", "302");
+assertStatusEQ("https://hessen-it.piratenpad.de", "302");
 
 
 echo '<h2>Liquid Feedback (Bundesinstanz) <small>lqfb.piratenpartei.de</small></h2>';
@@ -100,7 +98,7 @@ echo '
 
   <section id="other">
     <div class="page-header">
-      <h1>Leih-IT <small>Systeme, die von anderen Landesverbänden betrieben werden</small></h1>
+      <h1>Sonstige IT <small>Systeme, die von anderen Landesverbänden betrieben werden</small></h1>
     </div>
     <div class="row">
       <div class="span14">';
@@ -110,12 +108,9 @@ echo '<h2>Mumble <small>mumble.piratenpartei-nrw.de</small></h2>';
 
 assertPortUp("mumble.piratenpartei-nrw.de", 64738);
 
+echo '<h2>Brandenburg-Mumble <small>mumble.piratenpartei-nrw.de</small></h2>';
 
-echo '<h2>Liquid Feedback (Landesinstanz) <small>lqpp.de/mv</small></h2>';
-assertStatusEQ("https://lqpp.de/mv/", "303");
-assertStatusEQ("http://lqpp.de/mv/", "301");
-assertTitleEQ("https://lqpp.de/mv", " LiquidFeedback (Piratenpartei Mecklenburg-Vorpommern)");
-
+assertPortUp("mumble.piratenbrandenburg.de", 64738);
 
 echo '
       </div><!-- /span14 -->
@@ -124,115 +119,71 @@ echo '
 
   <section id="land">
     <div class="page-header">
-      <h1>Landes-IT <small>Systeme, die vom Landesverband betrieben werden</small></h1>
+      <h1>HessenIT <small>Systeme, die vom Landesverband betrieben werden</small></h1>
     </div>
     <div class="row">
       <div class="span14">';
 
+echo '<h2>Hosts</h2>';
 
-echo '<h2>Website <small>piratenpartei-mv.de</small></h2>';
+assertPortUp('pph1.pph0.de', 22);
+assertPortUp('pph2.pph0.de', 22);
+assertPortUp('pph3.pph0.de', 22);
+assertPortUp('pph4.pph0.de', 22);
 
-assertStatusEQ("http://piratenpartei-mv.de", "200");
+echo '<h2>Website <small>piratenpartei-hessen.de</small></h2>';
 
-assertRedirectionEQ('http://piraten-mv.de', 'http://piratenpartei-mv.de/');
-assertRedirectionEQ('http://www.piraten-mv.de', 'http://piratenpartei-mv.de/');
-assertRedirectionEQ('http://www.piratenpartei-mv.de', 'http://piratenpartei-mv.de/');
+assertStatusEQ("http://www.piratenpartei-hessen.de", "200");
 
-assertRedirectionEQ('https://piratenpartei-mv.de', 'http://piratenpartei-mv.de/');
-assertRedirectionEQ('https://piraten-mv.de', 'http://piratenpartei-mv.de/');
-assertRedirectionEQ('https://www.piratenpartei-mv.de', 'http://piratenpartei-mv.de/');
-assertRedirectionEQ('https://www.piraten-mv.de', 'http://piratenpartei-mv.de/');
+assertRedirectionEQ('http://piraten-hessen.de', 'http://www.piratenpartei-hessen.de/');
+assertRedirectionEQ('http://piraten-hessen.de', 'http://www.piratenpartei-hessen.de/');
+assertRedirectionEQ('http://piratenpartei-hessen.de', 'http://www.piratenpartei-hessen.de/');
 
-assertTitleEQ("http://piratenpartei-mv.de", "Piratenpartei Mecklenburg-Vorpommern");
+assertRedirectionEQ('https://piratenpartei-hessen.de', 'http://www.piratenpartei-hessen.de/');
+assertRedirectionEQ('https://piraten-hessen.de', 'http://www.piratenpartei-hessen.de/');
+assertStatusEQ('https://www.piratenpartei-hessen.de', '200');
+assertRedirectionEQ('https://www.piraten-hessen.de', 'http://www.piratenpartei-hessen.de/');
+
+assertTitleEQ("http://www.piratenpartei-hessen.de", "Piratenpartei Hessen | Klarmachen zum Ändern!");
 
 
-echo '<h2>E-Mail <small>mail.piratenpartei-mv.de</small></h2>';
+echo '<h2>E-Mail <small>mailx.piratenpartei-hessen.de</small></h2>';
 
 // web mail
-assertStatusEQ("http://mail.piraten-mv.de", "200");
-assertStatusEQ("https://mail.piraten-mv.de", "301");
-assertStatusEQ("http://mail.piratenpartei-mv.de", "200");
-assertStatusEQ("https://mail.piratenpartei-mv.de", "301");
+assertStatusEQ("http://webmail.piratenpartei-hessen.de", "302");
+assertStatusEQ("https://webmail.piratenpartei-hessen.de", "200");
+assertRedirectionEQ("http://webmail.piratenpartei-hessen.de", "https://roundcube.piratenpartei-hessen.de/");
 
-assertPortUp("pop3.piraten-mv.de", 110);
-assertPortUp("imap.piraten-mv.de", 143);
-assertPortUp("smtp.piraten-mv.de", 25);
-assertPortUp("smtp.piraten-mv.de", 587);
+assertPortUp("pop3.piratenpartei-hessen.de", 110);
+assertPortUp("imap.piratenpartei-hessen.de", 143);
+assertPortUp("smtp.piratenpartei-hessen.de", 25);
+assertPortUp("smtp.piratenpartei-hessen.de", 465);
 
-assertPortUp("pop3.piratenpartei-mv.de", 110);
-assertPortUp("imap.piratenpartei-mv.de", 143);
-assertPortUp("smtp.piratenpartei-mv.de", 25);
-assertPortUp("smtp.piratenpartei-mv.de", 587);
+echo '<h2>Telkoserver <small>sip.piratenpartei-hessen.de</small></h2>';
 
+assertStatusEQ('https://sip.piratenpartei-hessen.de/cgi-bin/meetmeadmin.cgi', '401');
+assertStatusEQ("http://sip.piratenpartei-hessen.de:8000/", "200");
+assertStatusEQ("http://sip.piratenpartei-hessen.de:8000/admin/", "401");
+assertStatusEQ("http://sip.piratenpartei-hessen.de:8000/status.xsl", "200");
+assertPortUp("udp://sip.piratenpartei-hessen.de", 5060);
 
-echo '<h2>Streaming <small>streaming.piratenpartei-mv.de</small></h2>';
+echo '<h2>OTRS <small>helpdesk.piratenpartei-hessen.de</small></h2>';
 
-assertStatusEQ("http://streaming.piratenpartei-mv.de:8000", "200");
-assertStatusEQ('http://streaming.piratenpartei-mv.de', '200');
-assertStatusEQ("http://streaming.piratenpartei-mv.de/live", "200");
-assertStatusEQ("http://streaming.piratenpartei-mv.de/admin/", "401");
-assertStatusEQ("http://streaming.piratenpartei-mv.de/status2.xsl", "200");
+assertStatusEQ("https://intern.piratenpartei-hessen.de/otrs/index.pl", "200");
 
-assertRedirectionEQ('http://streaming.piraten-mv.de', 'http://streaming.piratenpartei-mv.de/');
+echo '<h2>Lime Survey <small>limesurvey.piratenpartei-hessen.de</small></h2>';
 
+assertStatusEQ("https://limesurvey.piratenpartei-hessen.de/", "200");
 
-echo '<h2>Helpdesk <small>helpdesk.piratenpartei-mv.de</small></h2>';
+echo '<h2>Mailman <small>lists.piratenpartei-hessen.de</small></h2>';
 
-assertStatusEQ("https://helpdesk.piratenpartei-mv.de/otrs/index.pl", "200");
-assertRedirectionEQ('http://helpdesk.piratenpartei-mv.de', 'https://helpdesk.piratenpartei-mv.de/');
-assertRedirectionEQ('http://helpdesk.piraten-mv.de', 'https://helpdesk.piratenpartei-mv.de/');
+assertStatusEQ("http://lists.piratenpartei-hessen.de/mailman/listinfo", "200");
+assertRedirectionEQ("http://lists.piratenpartei-hessen.de/", "http://lists.piratenpartei-hessen.de/mailman/listinfo");
 
+echo '<h2>vMB <small>vote.piratenpartei-hessen.de</small></h2>';
 
-echo '<h2>Storage <small>storage.piratenpartei-mv.de</small></h2>';
-
-assertStatusEQ("https://storage.piratenpartei-mv.de", "404");
-assertStatusEQ("https://storage.piratenpartei-mv.de/webdav", "401");
-assertStatusEQ("https://storage.piratenpartei-mv.de/webdav/vorstand", "401");
-
-assertRedirectionEQ('http://storage.piratenpartei-mv.de/webdav', 'https://storage.piratenpartei-mv.de/webdav');
-assertRedirectionEQ('http://storage.piraten-mv.de/webdav', 'https://storage.piratenpartei-mv.de/webdav');
-
-
-echo '<h2>Lime Survey <small>service.piratenpartei-mv.de/limesurvey</small></h2>';
-
-assertStatusEQ("https://service.piratenpartei-mv.de/limesurvey/", "200");
-
-assertRedirectionEQ('http://service.piratenpartei-mv.de/limesurvey', 'https://service.piratenpartei-mv.de/limesurvey/');
-assertRedirectionEQ('http://service.piraten-mv.de/limesurvey', 'https://service.piratenpartei-mv.de/limesurvey/');
-
-
-echo '<h2>Vorstandsportal <small>vorstand.piratenpartei-mv.de</small></h2>';
-
-assertStatusEQ("http://vorstand.piratenpartei-mv.de", "200");
-assertStatusEQ("http://vorstand.piratenpartei-mv.de/wp-admin", "301");
-assertStatusEQ("http://vorstand.piratenpartei-mv.de/wp-login.php", "200");
-assertStatusEQ("http://vorstand.piratenpartei-mv.de/wp-content/plugins/_umlaufbeschluss/umlauf.php", "200");
-assertStatusEQ("http://vorstand.piratenpartei-mv.de/kontakt/antrag-stellen/", "200");
-assertStatusEQ("http://vorstand.piratenpartei-mv.de/wp-content/plugins/_antrag/antrag.php", "302");
-
-echo '<h2>FTP <small>ftp.piratenpartei-mv.de</small></h2>';
-
-assertPortUp("service.piratenpartei-mv.de", 21);
-
-echo '<h2>Redmine <small>redmine.piratenpartei-mv.de</small></h2>';
-
-assertStatusEQ("https://redmine.piratenpartei-mv.de/", "200");
-assertRedirectionEQ('https://redmine.piratenpartei-mv.de/redmine/', 'https://redmine.piratenpartei-mv.de/');
-assertRedirectionEQ('http://redmine.piratenpartei-mv.de/redmine/', 'https://redmine.piratenpartei-mv.de/');
-assertRedirectionEQ('http://redmine.piraten-mv.de/redmine', 'https://redmine.piratenpartei-mv.de');
-assertTitleEQ("https://redmine.piratenpartei-mv.de/", "Piraten MV");
-assertStatusEQ("https://redmine.piratenpartei-mv.de/projects/arbeitsamt/issues.json", "200");
-assertStatusEQ("https://redmine.piratenpartei-mv.de/projects/vorstand/issues/new", "302");
-
-echo '<h2>Jenkins <small>service.piratenpartei-mv.de:8080</small></h2>';
-
-assertStatusEQ("http://service.piratenpartei-mv.de:8080", "403");
-
-echo '<h2>Dashboard <small>dashboard.piratenpartei-mv.de</small></h2>';
-
-assertStatusEQ("http://dashboard.piratenpartei-mv.de", "200");
-assertStatusEQ("http://dashboard.piraten-mv.de", "301");
-
+assertStatusEQ("https://vote.piratenpartei-hessen.de/", "200");
+assertRedirectionEQ("http://vote.piratenpartei-hessen.de", "https://vote.piratenpartei-hessen.de/");
 
 echo '
       </div><!-- /span14 -->
