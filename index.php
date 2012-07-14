@@ -191,6 +191,10 @@ assertStatusEQ("https://lqfb.piratenpartei-hessen.de/", "303");
 assertStatusEQ("http://lqfb.piratenpartei-hessen.de/", "303");
 assertStatusEQ("https://lqfb.piratenpartei-hessen.de/area/list.html", "200");
 
+echo '<h2>Redmine (Test-Instanz) <small>redmine.piratenpartei-hessen.de</small></h2>';
+
+assertStatusEQ('http://redmine.piratenpartei-hessen.de', '200');
+
 echo '
       </div><!-- /span14 -->
     </div><!-- /row -->
