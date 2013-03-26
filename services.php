@@ -135,7 +135,7 @@ assertStatusEQ("http://sip.piratenpartei-hessen.de:8000/admin/", "401");
 assertStatusEQ("http://sip.piratenpartei-hessen.de:8000/status.xsl", "200");
 assertPortUp("udp://sip.piratenpartei-hessen.de", 5060);
 
-echo '<h2>OTRS <small>helpdesk.piratenpartei-hessen.de</small></h2>';
+echo '<h2>OTRS <small>intern.piratenpartei-hessen.de</small></h2>';
 
 assertStatusEQ("https://intern.piratenpartei-hessen.de/otrs/index.pl", "200");
 
@@ -145,8 +145,8 @@ assertStatusEQ("https://limesurvey.piratenpartei-hessen.de/", "200");
 
 echo '<h2>Mailman <small>lists.piratenpartei-hessen.de</small></h2>';
 
-assertStatusEQ("http://lists.piratenpartei-hessen.de/mailman/listinfo", "200");
-assertRedirectionEQ("http://lists.piratenpartei-hessen.de/", "http://lists.piratenpartei-hessen.de/mailman/listinfo");
+assertStatusEQ("http://lists.piratenpartei-hessen.de/cgi-bin/mailman/listinfo", "200");
+assertRedirectionEQ("http://lists.piratenpartei-hessen.de/", "http://lists.piratenpartei-hessen.de/cgi-bin/mailman/listinfo");
 
 echo '<h2>vMB <small>vote.piratenpartei-hessen.de</small></h2>';
 
